@@ -9,28 +9,24 @@ static const char *TAG = "SENSOR";
 
 void sensor_init(void)
 {
-    ESP_LOGI(TAG, "🔧 Sensor initialized (file: %s, line: %d)", __FILE__, __LINE__);
+    ESP_LOGI(TAG, "🔧 Sensor initialized from file: %s, line: %d", __FILE__, __LINE__);
     ESP_LOGI(TAG, "📡 Sensor module ready for operation");
 }
 
-sensor_data_t sensor_read_data(void)
+void sensor_read_data(void)
 {
-    ESP_LOGI(TAG, "📊 Reading sensor data (file: %s, line: %d)", __FILE__, __LINE__);
-
-    sensor_data_t data;
-    data.temperature = 25.5f + (float)(esp_random() % 100) / 10.0f;  // 25.5 - 35.4
-    data.humidity    = 60.0f + (float)(esp_random() % 400) / 10.0f;  // 60.0 - 99.9
-
-    ESP_LOGI(TAG, "🌡️  Temperature: %.1f °C", data.temperature);
-    ESP_LOGI(TAG, "💧 Humidity: %.1f %%", data.humidity);
-
-    return data;
+    ESP_LOGI(TAG, "📊 Reading sensor data from file: %s, line: %d", __FILE__, __LINE__);
+    
+    // จำลองการอ่านข้อมูลจาก sensor
+    float temperature = 25.5 + (float)(esp_random() % 100) / 10.0f;
+    float humidity = 60.0 + (float)(esp_random() % 400) / 10.0f;
+    
+    ESP_LOGI(TAG, "🌡️  Temperature: %.1f°C", temperature);
+    ESP_LOGI(TAG, "💧 Humidity: %.1f%%", humidity);
 }
 
-bool sensor_check_status(void)
+void sensor_check_status(void)
 {
-    ESP_LOGI(TAG, "✅ Sensor status check (file: %s, line: %d)", __FILE__, __LINE__);
+    ESP_LOGI(TAG, "✅ Sensor status check from file: %s, line: %d", __FILE__, __LINE__);
     ESP_LOGI(TAG, "📈 All sensors operating normally");
-
-    return true;  // mock ว่าเซนเซอร์ปกติ
 }
